@@ -78,7 +78,7 @@
                         <div class="absolute-bottom-left index-2">
                             <div class="text-white p-5 pb-2">
                                 <div class="mb-5 pb-3">
-                                    <h1 class="mb-2 display-3 font-weight-bold">{{ $clock->format('H:i') }}</h1>
+                                    <h1 class="mb-2 display-3 font-weight-bold">{{ config('app.name') }}</h1>
                                     <h5 class="font-weight-normal text-muted-transparent">Subang, Indonesia</h5>
                                 </div>
                             </div>

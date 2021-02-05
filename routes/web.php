@@ -19,6 +19,8 @@ Route::get('/', 'AdminController@index');
 Route::resource('students', 'StudentController');
 // Classroom
 Route::resource('classrooms', 'ClassroomController');
+// Payment
+Route::resource('payments', 'PaymentController');
 
 Auth::routes();
 
