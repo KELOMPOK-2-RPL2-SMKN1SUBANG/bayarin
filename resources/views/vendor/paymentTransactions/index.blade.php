@@ -1,82 +1,68 @@
 @extends('layouts.admin.index')
 
-@section('title', 'Payments')
+@section('title', 'Payment Transactions')
 
 @section('content')
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-12">
         @if (session('status'))
         <div class="alert alert-primary">
             {{ session('status') }}
         </div>
         @endif
         <div class="card">
-            <div class="card-header">
-                <h4>Payments <span>({{ $payments->count() }})</span></h4>
-                <div class="card-header-action">
-                    <a href="/payments/create" class="btn btn-primary">Add <i class="fas fa-plus"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="card">
-    <div class="card-header">
-        <h4></h4>
-        <div class="card-header-form">
-            <form>
-                <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search">
-                <div class="input-group-btn">
-                    <button class="btn btn-primary"><i class="fas fa-search"></i></button>
-                </div>
+            {{-- <div class="card-header">
+                <h4>Add Payments</h4>
+            </div> --}}
+            <form action="/payment-transactions/search" method="post">
+                @csrf
+                <div class="card-body">
+                    <div class="form-group row mb-4">
+                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Accout Number</label>
+                        <div class="col-sm-12 col-md-7">
+                            <input type="text" value="{{ old('account_number') }}" name="account_number" class="form-control @error('account_number') is-invalid @enderror" placeholder="Account Number" autofocus>
+                            <div class="invalid-feedback">
+                                @error('account_number') {{ $message }} @enderror
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row mb-4">
+                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Payment</label>
+                        <div class="col-sm-12 col-md-7">
+                            <select class="form-control @error('payment') is-invalid @enderror" value="{{ old('payment') }}" name="payment">
+                                <option value="" selected>-- Select Payment -- </option>
+                                @foreach ($payments as $payment)
+                                    <option value="{{ $payment['id'] }}">{{ $payment['payment'] }}</option>
+                                @endforeach
+                            </select>
+                            <div class="invalid-feedback">
+                                @error('payment') {{ $message }} @enderror
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row mb-4">
+                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Payment Method</label>
+                        <div class="col-sm-12 col-md-7">
+                            <select class="form-control @error('payment_method') is-invalid @enderror" value="{{ old('payment_method') }}" name="payment_method">
+                                <option value="" selected>-- Select Payment Method -- </option>
+                                @foreach ($paymentMethod as $item)
+                                    <option value="{{ $item }}">{{ $item }}</option>
+                                @endforeach
+                            </select>
+                            <div class="invalid-feedback">
+                                @error('payment_method') {{ $message }} @enderror
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row mb-4">
+                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
+                        <div class="col-sm-12 col-md-7">
+                            <button class="btn btn-primary">Save</button>
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>
-    </div>
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Payment</th>
-                        <th scope="col">Nominal</th>
-                        <th scope="col">Classroom</th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($payments as $payment)      
-                    <tr>
-                        <td>{{ $payment['payment'] }}</td>
-                        <td>Rp. {{ $payment['nominal'] }}</td>
-                        <td>
-                            @if ($payment['classroom'] == 0)
-                                {{ 'All Classroom' }}
-                            @else 
-                                {{ $payment->class->classroom }}
-                            @endif
-                        </td>
-                        <td>
-                            <form action="{{ '/payments/' . $payment['id'] }}" method="post">
-                                @method('delete')
-                                @csrf
-                                <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                                <a href="{{ '/payments/' . $payment['id'] . '/edit' }}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
-                            </form>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="card-footer text-right">
-        <nav class="d-inline-block">
-            <ul class="pagination mb-0">
-                {{-- {{ $payments->links() }} --}}
-            </ul>
-        </nav>
     </div>
 </div>
 @endsection

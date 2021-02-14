@@ -48,17 +48,18 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'first_name'    => 'required',
-            'last_name'     => 'required',
-            'name'          => 'nullable',
-            'nisn'          => 'required|numeric',
-            'nis'           => 'required|numeric',
-            'date_of_birth' => 'required|date',
-            'gender'        => 'required',
-            'classroom'     => 'required',
-            'phone_number'  => 'required|numeric',
-            'email'         => 'required|email',
-            'address'       => 'required'
+            'first_name'     => 'required',
+            'last_name'      => 'required',
+            'name'           => 'nullable',
+            'nisn'           => 'required|numeric',
+            'nis'            => 'required|numeric',
+            'account_number' => 'required|numeric',
+            'date_of_birth'  => 'required|date',
+            'gender'         => 'required',
+            'classroom'      => 'required',
+            'phone_number'   => 'required|numeric',
+            'email'          => 'required|email',
+            'address'        => 'required'
         ]);
 
         $data = [];
@@ -116,17 +117,18 @@ class StudentController extends Controller
     public function update(Request $request, Student $student)
     {
         $request->validate([
-            'first_name'    => 'required',
-            'last_name'     => 'required',
-            'name'          => 'nullable',
-            'nisn'          => 'required|numeric',
-            'nis'           => 'required|numeric',
-            'date_of_birth' => 'required|date',
-            'gender'        => 'required',
-            'classroom'     => 'required',
-            'phone_number'  => 'required|numeric',
-            'email'         => 'required|email',
-            'address'       => 'required'
+            'first_name'     => 'required',
+            'last_name'      => 'required',
+            'name'           => 'nullable',
+            'nisn'           => 'required|numeric',
+            'nis'            => 'required|numeric',
+            'account_number' => 'required|numeric',
+            'date_of_birth'  => 'required|date',
+            'gender'         => 'required',
+            'classroom'      => 'required',
+            'phone_number'   => 'required|numeric',
+            'email'          => 'required|email',
+            'address'        => 'required'
         ]);
 
         $data = [];

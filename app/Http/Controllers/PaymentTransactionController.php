@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\PaymentTransaction;
 use Illuminate\Http\Request;
+use App\Payment;
+use App\Student;
 
 class PaymentTransactionController extends Controller
 {
@@ -14,10 +16,14 @@ class PaymentTransactionController extends Controller
      */
     public function index()
     {
-        $paymentTransaction = PaymentTransaction::all();
+        $paymentTransactions = PaymentTransaction::all();
+        $payments            = Payment::all();
+        $paymentMethod       = ['Cash', 'Transfer'];
 
         return view('vendor.paymentTransactions.index', [
-            'paymentTransactions' => $paymentTransaction
+            'paymentTransactions' => $paymentTransactions,
+            'payments'            => $payments,
+            'paymentMethod'       => $paymentMethod
         ]);
     }
 
@@ -85,5 +91,16 @@ class PaymentTransactionController extends Controller
     public function destroy(PaymentTransaction $paymentTransaction)
     {
         //
+    }
+
+    public function search(Request $request)
+    {
+        $students = Student::where('account_number', $request->account_number);
+        $payments = Payment::where('id', $request->payment);
+
+        return view('vendor.paymentTransactions.search', [
+            'students' => $students,
+            'payments' => $payments
+        ]);
     }
 }

@@ -54,6 +54,15 @@
                         </div>
                     </div>
                     <div class="form-group row mb-4">
+                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Account Number</label>
+                        <div class="col-sm-12 col-md-7">
+                            <input type="number" value="{{ old('account_number') }}" name="account_number" class="form-control @error('account_number') is-invalid @enderror" placeholder="Account Number">
+                            <div class="invalid-feedback">
+                                @error('nis') {{ $message }} @enderror
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row mb-4">
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Date of Birth</label>
                         <div class="col-sm-12 col-md-7">
                             <input type="date" value="{{ old('date_of_birth') }}" name="date_of_birth" class="form-control @error('date_of_birth') is-invalid @enderror">

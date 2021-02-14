@@ -22,7 +22,7 @@
             <!-- Transactions -->
             <li class="menu-header">Transactions</li>
             <li><a class="nav-link" href="/payments"><i class="fas fa-money-bill-wave-alt"></i> <span>Payments</span></a></li>
-            <li><a class="nav-link" href="/payments"><i class="fas fa-shopping-cart"></i> <span>Payment Transactions</span></a></li>
+            <li><a class="nav-link" href="/payment-transactions"><i class="fas fa-shopping-cart"></i> <span>Payment Transactions</span></a></li>
 
     </aside>
 </div>
