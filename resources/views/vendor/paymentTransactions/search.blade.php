@@ -1,6 +1,6 @@
 @extends('layouts.admin.index')
 
-@section('title', 'Students')
+@section('title', 'Payment Transactions')
 
 @section('content')
 <div class="row">
@@ -12,9 +12,9 @@
         @endif
         <div class="card">
             <div class="card-header">
-                <h4>Students <span>({{ $count }})</span></h4>
+                {{-- <h4>Payments <span>({{ $payments->count() }})</span></h4> --}}
                 <div class="card-header-action">
-                    <a href="/students/create" class="btn btn-primary">Add <i class="fas fa-plus"></i></a>
+                    <a href="/payments/create" class="btn btn-primary">Add <i class="fas fa-plus"></i></a>
                 </div>
             </div>
         </div>
@@ -39,29 +39,30 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Account Number</th>
-                        {{-- <th scope="col">Gender</th> --}}
+                        <th scope="col">Payment</th>
+                        <th scope="col">Nominal</th>
                         <th scope="col">Classroom</th>
-                        <th scope="col">Phone Number</th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($students as $student)      
+                    @foreach ($payments as $payment)      
                     <tr>
-                        <td>{{ $student['name'] }}</td>
-                        <td>{{ $student['account_number'] }}</td>
-                        {{-- <td>{{ $student['gender'] }}</td> --}}
-                        <td>{{ $student->class->classroom }}</td>
-                        <td>{{ $student['phone_number'] }}</td>
-                        <td class="text-right">
-                            <form action="{{ '/students/' . $student['id'] }}" method="post">
+                        <td>{{ $payment['payment'] }}</td>
+                        <td>Rp. {{ $payment['nominal'] }}</td>
+                        <td>
+                            @if ($payment['classroom'] == 0)
+                                {{ 'All Classroom' }}
+                            @else 
+                                {{ $payment->class->classroom }}
+                            @endif
+                        </td>
+                        <td>
+                            <form action="{{ '/payments/' . $payment['id'] }}" method="post">
                                 @method('delete')
                                 @csrf
                                 <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                                <a href="{{ '/students/' . $student['id'] . '/edit' }}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
-                                <a href="{{ '/students/' . $student['id'] }}" class="btn btn-info"><i class="fa fa-search"></i></a>
+                                <a href="{{ '/payments/' . $payment['id'] . '/edit' }}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
                             </form>
                         </td>
                     </tr>
@@ -73,7 +74,7 @@
     <div class="card-footer text-right">
         <nav class="d-inline-block">
             <ul class="pagination mb-0">
-                {{ $students->links() }}
+                {{-- {{ $payments->links() }} --}}
             </ul>
         </nav>
     </div>

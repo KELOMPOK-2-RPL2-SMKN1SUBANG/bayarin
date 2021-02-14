@@ -21,6 +21,8 @@ Route::resource('students', 'StudentController');
 Route::resource('classrooms', 'ClassroomController');
 // Payment
 Route::resource('payments', 'PaymentController');
+// Payment Transaction
+Route::resource('payment-transactions', 'PaymentTransactionController');
 
 Auth::routes();
 

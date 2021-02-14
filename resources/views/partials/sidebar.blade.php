@@ -14,18 +14,15 @@
             <!-- Students -->
             <li class="menu-header">Student</li>
             <li><a class="nav-link" href="/students"><i class="fas fa-users"></i> <span>Students</span></a></li>
-            <li><a class="nav-link" href="/students/create"><i class="fas fa-plus-circle"></i> <span>Create Students</span></a></li>
 
             <!-- Classrooms -->
             <li class="menu-header">Classroom</li>
             <li><a class="nav-link" href="/classrooms"><i class="fas fa-university"></i> <span>Classrooms</span></a></li>
-            <li><a class="nav-link" href="/classrooms/create"><i class="fas fa-plus-circle"></i> <span>Create Classrooms</span></a></li>
             
             <!-- Transactions -->
             <li class="menu-header">Transactions</li>
             <li><a class="nav-link" href="/payments"><i class="fas fa-money-bill-wave-alt"></i> <span>Payments</span></a></li>
-            <li><a class="nav-link" href="/payments/create"><i class="fas fa-plus-circle"></i> <span>Create payment</span></a></li>
+            <li><a class="nav-link" href="/payment-transactions"><i class="fas fa-shopping-cart"></i> <span>Payment Transactions</span></a></li>
 
-            
     </aside>
 </div>
