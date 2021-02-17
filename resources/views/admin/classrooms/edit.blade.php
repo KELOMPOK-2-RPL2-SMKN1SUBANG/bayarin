@@ -1,6 +1,6 @@
-@extends('layouts.admin.index')
+@extends('layouts.admin-master')
 
-@section('title', 'Create Classrooms')
+@section('title', 'Edit Classrooms')
 
 @section('content')
 <div class="row">
@@ -11,16 +11,17 @@
         </div>
         @endif
         <div class="card">
-            <div class="card-header">
-                <h4>Add Classrooms</h4>
-            </div>
-            <form action="/classrooms" method="post">
+            {{-- <div class="card-header">
+                <h4>Edit Classrooms</h4>
+            </div> --}}
+            <form action="{{ '/admin/classrooms/' . $model['id'] }}" method="post">
+                @method('patch')
                 @csrf
                 <div class="card-body">
                     <div class="form-group row mb-4">
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Classroom</label>
                         <div class="col-sm-12 col-md-7">
-                            <input type="text" value="{{ old('classroom') }}" name="classroom" class="form-control @error('classroom') is-invalid @enderror" placeholder="First name" autofocus>
+                            <input type="text" value="{{ $model['classroom'] }}" name="classroom" class="form-control @error('classroom') is-invalid @enderror" placeholder="First name" autofocus>
                             <div class="invalid-feedback">
                                 @error('classroom') {{ $message }} @enderror
                             </div>

@@ -1,6 +1,8 @@
-@extends('layouts.admin.index')
+@extends('layouts.admin-master')
 
-@section('title', 'Classrooms')
+@section('title')
+Manage Users
+@endsection
 
 @section('content')
 <div class="row">
@@ -12,16 +14,15 @@
         @endif
         <div class="card">
             <div class="card-header">
-                <h4>Classrooms <span>({{ $count }})</span></h4>
+                <h4>Students <span>({{ 1 }})</span></h4>
                 <div class="card-header-action">
-                    <a href="/classrooms/create" class="btn btn-primary">Add <i class="fas fa-plus"></i></a>
+                    <a href="/students/create" class="btn btn-primary">Add <i class="fas fa-plus"></i></a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-<div class="card">
+{{-- <div class="card">
     <div class="card-header">
         <h4></h4>
         <div class="card-header-form">
@@ -40,20 +41,29 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Account Number</th>
+                        <th scope="col">Gender</th>
                         <th scope="col">Classroom</th>
+                        <th scope="col">Phone Number</th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($classrooms as $classroom)      
+                    @foreach ($students as $student)      
                     <tr>
-                        <td>{{ $classroom['classroom'] }}</td>
-                        <td>
-                            <form action="{{ '/classrooms/' . $classroom['id'] }}" method="post">
+                        <td>{{ $student['name'] }}</td>
+                        <td>{{ $student['account_number'] }}</td>
+                        <td>{{ $student['gender'] }}</td>
+                        <td>{{ $student->class->classroom }}</td>
+                        <td>{{ $student['phone_number'] }}</td>
+                        <td class="text-right">
+                            <form action="{{ '/students/' . $student['id'] }}" method="post">
                                 @method('delete')
                                 @csrf
                                 <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                                <a href="{{ '/classrooms/' . $classroom['id'] . '/edit' }}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
+                                <a href="{{ '/students/' . $student['id'] . '/edit' }}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
+                                <a href="{{ '/students/' . $student['id'] }}" class="btn btn-info"><i class="fa fa-search"></i></a>
                             </form>
                         </td>
                     </tr>
@@ -65,9 +75,9 @@
     <div class="card-footer text-right">
         <nav class="d-inline-block">
             <ul class="pagination mb-0">
-                {{ $classrooms->links() }}
+                {{ $students->links() }}
             </ul>
         </nav>
     </div>
-</div>
+</div> --}}
 @endsection

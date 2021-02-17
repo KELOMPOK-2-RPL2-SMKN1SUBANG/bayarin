@@ -19,12 +19,12 @@ class StudentController extends Controller
         $students   = Student::orderBy('first_name', 'ASC')->paginate(10);
         $count      = Student::get()->count();
 
-        return view('vendor.students.index', [
+        return view('admin.students.index', [
             'students' => $students,
             'count'    => $count
         ]);
 
-        return view('vendor.students.index');
+        return view('admin.students.index');
     }
 
     /**
@@ -36,7 +36,7 @@ class StudentController extends Controller
     {
         $classrooms = Classroom::all();
 
-        return view('vendor.students.create', compact('classrooms'));
+        return view('admin.students.create', compact('classrooms'));
     }
 
     /**
@@ -71,7 +71,7 @@ class StudentController extends Controller
 
         Student::create($data);
 
-        return redirect('/students/create')->with('status', 'Student data was successfully added!');
+        return redirect(route('admin.students.create'))->with('status', 'Student data was successfully added!');
     }
 
     /**
@@ -82,7 +82,7 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        return view('vendor.students.show', compact('student'));
+        return view('admin.students.show', compact('student'));
     }
 
     /**
@@ -100,7 +100,7 @@ class StudentController extends Controller
             'Female'
         ];
 
-        return view('vendor.students.edit', [
+        return view('admin.students.edit', [
             'model'         => $student,
             'classrooms'    => $classrooms,
             'genders'       => $genders
@@ -123,6 +123,7 @@ class StudentController extends Controller
             'nisn'           => 'required|numeric',
             'nis'            => 'required|numeric',
             'account_number' => 'required|numeric',
+            'account_number' => 'required|numeric',
             'date_of_birth'  => 'required|date',
             'gender'         => 'required',
             'classroom'      => 'required',
@@ -140,7 +141,7 @@ class StudentController extends Controller
 
         $student->update($data);
 
-        return redirect('/students')->with('status', 'Student data has been changed successfully!');
+        return redirect(route('admin.students'))->with('status', 'Student data has been changed successfully!');
     }
 
     /**
@@ -153,6 +154,6 @@ class StudentController extends Controller
     {
         Student::destroy($student->id);
 
-        return redirect('/students');
+        return redirect(route('admin.students'));
     }
 }

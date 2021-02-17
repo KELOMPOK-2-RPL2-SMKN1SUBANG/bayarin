@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Classroom;
-use App\Student;
 use Illuminate\Http\Request;
 
 class ClassroomController extends Controller
@@ -18,7 +17,7 @@ class ClassroomController extends Controller
         $classrooms = Classroom::orderBy('classroom', 'ASC')->paginate(10);
         $count      = Classroom::get()->count();
 
-        return view('vendor.classrooms.index', [
+        return view('admin.classrooms.index', [
             'classrooms' => $classrooms,
             'count'      => $count
         ]);
@@ -31,7 +30,7 @@ class ClassroomController extends Controller
      */
     public function create()
     {
-        return view('vendor.classrooms.create');
+        return view('admin.classrooms.create');
     }
 
     /**
@@ -48,7 +47,7 @@ class ClassroomController extends Controller
 
         Classroom::create($request->all());
 
-        return redirect('/classrooms/create')->with('status', 'Classroom data was successfully added!');
+        return redirect(route('admin.classrooms'))->with('status', 'Classroom data was successfully added!');
     }
 
     /**
@@ -70,7 +69,7 @@ class ClassroomController extends Controller
      */
     public function edit(Classroom $classroom)
     {
-        return view('vendor.classrooms.edit', [
+        return view('admin.classrooms.edit', [
             'model' => $classroom
         ]);
     }
@@ -90,7 +89,7 @@ class ClassroomController extends Controller
 
         $classroom->update($request->all());
 
-        return redirect('/classrooms')->with('status', 'Classroom data has been changed successfully!');
+        return redirect(route('admin.classrooms'))->with('status', 'Classroom data has been changed successfully!');
     }
 
     /**
@@ -103,6 +102,6 @@ class ClassroomController extends Controller
     {
         Classroom::destroy($classroom->id);
 
-        return redirect('/classrooms');
+        return redirect(route('admin.classrooms'));
     }
 }
