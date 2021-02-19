@@ -2,7 +2,7 @@
 
 ## About Bayarin
 
-Bayarin adalah sistem pembanyan SPP (Sumbangan Pembinaan Pendidikan) yang dibuat agar mempermudah umat manusia dalam pembayaran SPP.
+Bayarin is an SPP (Education Development Contribution) system designed to make it easier for mankind to pay tuition fees.
 
 ## Contributing
 
@@ -14,11 +14,11 @@ In order to ensure that the Laravel community is welcoming to all, please review
 
 ## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within Bayarin, please send an e-mail to Chacha Nurholis via [chachanurholis29@gmail.com](mailto:chachanurolis29@gmail.com). All security vulnerabilities will be promptly addressed.
 
 ## Developer
 
-<a href="https://github.com/chanurholis">Chacha Nurholis</>
+<a href="https://github.com/chanurholis">Chacha Nurholis</a>
 
 ## License
 
