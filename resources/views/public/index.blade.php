@@ -41,7 +41,7 @@
             </div>
         
         
-            <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
+            <header class="site-navbar py-3 js-sticky-header site-navbar-target" role="banner">
 
             <div class="container">
                 <div class="row align-items-center">
@@ -304,11 +304,6 @@
                 <div class="col-lg-5 ml-auto pl-lg-5">
                     <h2 class="text-black mb-4 h3 font-weight-bold">Our Mission</h2>
                     <p class="mb-4">Eos cumque optio dolores excepturi rerum temporibus magni recusandae eveniet, totam omnis consectetur maxime quibusdam expedita dolorem dolor nobis dicta labore quaerat esse magnam unde, aperiam delectus! At maiores, itaque.</p>
-                    <ul class="ul-check mb-5 list-unstyled success">
-                    <li>Laborum enim quasi at modi</li>
-                    <li>Ad at tempore</li>
-                    <li>Labore quaerat esse</li>
-                    </ul>
                     <p><a href="#" class="btn btn-primary">Learn More</a></p>
                 </div>
                 </div>
@@ -380,61 +375,6 @@
                     <h2 class="text-black h1">Will Turner</h2>
                     <span class="sub-title d-block mb-3">Marketing</span>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum excepturi corporis qui doloribus perspiciatis ipsa modi accusantium repellat.</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
-                    <div class="person">
-                    <div class="bio-img">
-                        <figure>
-                        <img src="http://localhost/TEMPLATE/imagine/imagine/images/person_4.jpg" alt="Image" class="img-fluid">
-                        </figure>
-                        <div class="social">
-                        <a href="#"><span class="icon-facebook"></span></a>
-                        <a href="#"><span class="icon-twitter"></span></a>
-                        <a href="#"><span class="icon-instagram"></span></a>
-                        </div>
-                    </div>
-                    <h2 class="text-black h1">Nicolas Stainer</h2>
-                    <span class="sub-title d-block mb-3">Financing</span>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum excepturi corporis qui doloribus perspiciatis ipsa modi accusantium repellat.</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="person">
-                    <div class="bio-img">
-                        <figure>
-                        <img src="http://localhost/TEMPLATE/imagine/imagine/images/person_5.jpg" alt="Image" class="img-fluid">
-                        </figure>
-                        <div class="social">
-                        <a href="#"><span class="icon-facebook"></span></a>
-                        <a href="#"><span class="icon-twitter"></span></a>
-                        <a href="#"><span class="icon-instagram"></span></a>
-                        </div>
-                    </div>
-                    <h2 class="text-black h1">George Brook</h2>
-                    <span class="sub-title d-block mb-3">Founder</span>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum excepturi corporis qui doloribus perspiciatis ipsa modi accusantium repellat.</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="person">
-                    <div class="bio-img">
-                        <figure>
-                        <img src="http://localhost/TEMPLATE/imagine/imagine/images/person_6.jpg" alt="Image" class="img-fluid">
-                        </figure>
-                        <div class="social">
-                        <a href="#"><span class="icon-facebook"></span></a>
-                        <a href="#"><span class="icon-twitter"></span></a>
-                        <a href="#"><span class="icon-instagram"></span></a>
-                        </div>
-                    </div>
-                    <h2 class="text-black h1">Emely Hopson</h2>
-                    <span class="sub-title d-block mb-3">Marketing</span>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum excepturi corporis qui doloribus perspiciatis ipsa modi accusantium repellat.</p>
-                    
                     </div>
                 </div>
 
