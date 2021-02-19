@@ -2,28 +2,56 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Route::get('/', function () {
+    return view('public.index');
+});
 
-Route::get('/', 'AdminController@index');
+Route::get('admin', function () {
+    return redirect(route('admin.dashboard'));
+});
 
-// Student
-Route::resource('students', 'StudentController');
-// Classroom
-Route::resource('classrooms', 'ClassroomController');
-// Payment
-Route::resource('payments', 'PaymentController');
-// Payment Transaction
-Route::resource('payment-transactions', 'PaymentTransactionController');
+Route::name('admin.')->prefix('admin')->middleware('auth')->group(function () {
+    Route::get('dashboard', 'AdminController')->name('dashboard');
 
-Auth::routes();
+    // Students
+    Route::resource('students', 'StudentController', [
+        'names' => [
+            'index' => 'students'
+        ]
+    ]);
 
-Route::get('/admin', 'AdminController@index')->name('admin');
+    // Classrooms
+    Route::resource('classrooms', 'ClassroomController', [
+        'names' => [
+            'index' => 'classrooms'
+        ]
+    ]);
+
+    // Users
+    Route::resource('users', 'UserController', [
+        'names' => [
+            'index' => 'users'
+        ]
+    ]);
+
+    // Payments
+    Route::resource('payments', 'PaymentController', [
+        'names' => [
+            'index' => 'payments'
+        ]
+    ]);
+
+    // Payment Transactions
+    Route::resource('payment-transactions', 'PaymentTransactionController', [
+        'names' => [
+            'index' => 'payment-transactions'
+        ]
+    ]);
+});
+
+Auth::routes(['verify' => true]);
+
+// Get authenticated user
+Route::get('users/auth', function () {
+    return response()->json(['user' => Auth::check() ? Auth::user() : false]);
+});

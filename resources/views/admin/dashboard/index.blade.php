@@ -1,4 +1,4 @@
-@extends('layouts.admin.index')
+@extends('layouts.admin-master')
 
 @section('content')
     @if (session('status'))

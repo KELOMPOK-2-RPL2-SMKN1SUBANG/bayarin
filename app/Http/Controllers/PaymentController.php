@@ -18,7 +18,7 @@ class PaymentController extends Controller
     {
         $payments = Payment::all();
 
-        return view('vendor.payments.index', compact('payments'));
+        return view('admin.payments.index', compact('payments'));
     }
 
     /**
@@ -30,7 +30,7 @@ class PaymentController extends Controller
     {
         $classrooms = Classroom::all();
 
-        return view('vendor.payments.create', [
+        return view('admin.payments.create', [
             'classrooms'    => $classrooms
         ]);
     }
@@ -51,7 +51,7 @@ class PaymentController extends Controller
 
         Payment::create($request->all());
 
-        return redirect('/payments')->with('status', 'Payment data was successfully added!');
+        return redirect(route('admin.payments'))->with('status', 'Payment data was successfully added!');
     }
 
     /**
@@ -75,7 +75,7 @@ class PaymentController extends Controller
     {
         $classrooms = Classroom::all();
 
-        return view('vendor.payments.edit', [
+        return view('admin.payments.edit', [
             'payment'   => $payment,
             'classrooms' => $classrooms
         ]);
@@ -98,7 +98,7 @@ class PaymentController extends Controller
 
         $payment->update($request->all());
 
-        return redirect('/payments')->with('status', 'Payment data has been changed successfully!');
+        return redirect(route('admin.payments'))->with('status', 'Payment data has been changed successfully!');
     }
 
     /**
@@ -111,6 +111,6 @@ class PaymentController extends Controller
     {
         Payment::destroy($payment->id);
 
-        return redirect('/payments');
+        return redirect(route('admin.payments'));
     }
 }

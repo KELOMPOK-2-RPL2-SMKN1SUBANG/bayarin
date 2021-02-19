@@ -20,7 +20,7 @@ class PaymentTransactionController extends Controller
         $payments            = Payment::all();
         $paymentMethod       = ['Cash', 'Transfer'];
 
-        return view('vendor.paymentTransactions.index', [
+        return view('admin.paymentTransactions.index', [
             'paymentTransactions' => $paymentTransactions,
             'payments'            => $payments,
             'paymentMethod'       => $paymentMethod
@@ -98,7 +98,7 @@ class PaymentTransactionController extends Controller
         $students = Student::where('account_number', $request->account_number);
         $payments = Payment::where('id', $request->payment);
 
-        return view('vendor.paymentTransactions.search', [
+        return view('admin.paymentTransactions.search', [
             'students' => $students,
             'payments' => $payments
         ]);
