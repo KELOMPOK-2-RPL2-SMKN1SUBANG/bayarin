@@ -12,58 +12,33 @@ Manage Users
             {{ session('status') }}
         </div>
         @endif
-        <div class="card">
-            <div class="card-header">
-                <h4>Students <span>({{ 1 }})</span></h4>
-                <div class="card-header-action">
-                    <a href="/students/create" class="btn btn-primary">Add <i class="fas fa-plus"></i></a>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
-{{-- <div class="card">
+<div class="card">
     <div class="card-header">
-        <h4></h4>
-        <div class="card-header-form">
-            <form>
-                <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search">
-                <div class="input-group-btn">
-                    <button class="btn btn-primary"><i class="fas fa-search"></i></button>
-                </div>
-                </div>
-            </form>
+        <h4>Students <span>({{ $users->count() }})</span></h4>
+        <div class="card-header-action">
+            <a href="/students/create" class="btn btn-primary">Add <i class="fas fa-plus"></i></a>
         </div>
     </div>
-    <div class="card-body">
+    <div class="card-body p-0">
         <div class="table-responsive">
             <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Account Number</th>
-                        <th scope="col">Gender</th>
-                        <th scope="col">Classroom</th>
-                        <th scope="col">Phone Number</th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
                 <tbody>
-                    @foreach ($students as $student)      
+                    <th scope="col">Name</th>
+                    <th scope="col">Emal</th>
+                    <th scope="col"></th>
+                    @foreach ($users as $user)      
                     <tr>
-                        <td>{{ $student['name'] }}</td>
-                        <td>{{ $student['account_number'] }}</td>
-                        <td>{{ $student['gender'] }}</td>
-                        <td>{{ $student->class->classroom }}</td>
-                        <td>{{ $student['phone_number'] }}</td>
+                        <td>{{ $user['name'] }}</td>
+                        <td>{{ $user['email'] }}</td>
                         <td class="text-right">
-                            <form action="{{ '/students/' . $student['id'] }}" method="post">
+                            <form action="{{ '/students/' . $user['id'] }}" method="post">
                                 @method('delete')
                                 @csrf
-                                <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                                <a href="{{ '/students/' . $student['id'] . '/edit' }}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
-                                <a href="{{ '/students/' . $student['id'] }}" class="btn btn-info"><i class="fa fa-search"></i></a>
+                                <button class="btn btn-danger @if($user['id'] == Auth::user()->id) d-none @endif"><i class="fa fa-trash"></i></button>
+                                <a href="{{ '/students/' . $user['id'] . '/edit' }}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
+                                <a href="{{ '/students/' . $user['id'] }}" class="btn btn-info"><i class="fa fa-search"></i></a>
                             </form>
                         </td>
                     </tr>
@@ -75,9 +50,9 @@ Manage Users
     <div class="card-footer text-right">
         <nav class="d-inline-block">
             <ul class="pagination mb-0">
-                {{ $students->links() }}
+                {{-- {{ $users->links() }} --}}
             </ul>
         </nav>
     </div>
-</div> --}}
+</div>
 @endsection

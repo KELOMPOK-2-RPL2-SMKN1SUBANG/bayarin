@@ -12,11 +12,6 @@ use App;
 
 class UserController extends Controller
 {
-    public function __construct()
-    {
-        $this->authorizeResource(User::class);
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -24,16 +19,9 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $this->authorize(User::class, 'index');
-        if ($request->ajax()) {
-            $users = new User;
-            if ($request->q) {
-                $users = $users->where('name', 'like', '%' . $request->q . '%')->orWhere('email', $request->q);
-            }
-            $users = $users->paginate(config('stisla.perpage'))->appends(['q' => $request->q]);
-            return response()->json($users);
-        }
-        return view('admin.users.index');
+        $users = User::all();
+
+        return view('admin.users.index', compact('users'));
     }
 
     /**
