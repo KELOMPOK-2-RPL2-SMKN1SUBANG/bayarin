@@ -75,7 +75,7 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 ## Developer
 
-<a href="https://github.com/chanurholis">Chacha Nurholis</>
+<a href="https://github.com/chanurholis">Chacha Nurholis</a>
 
 ## License
 
