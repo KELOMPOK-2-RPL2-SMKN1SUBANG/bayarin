@@ -78,7 +78,7 @@
 
                     <div class="row mb-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="col-lg-6 mr-auto">
-                        <h1>Make Your Business More Profitable</h1>
+                        <h1>Make Your Payments Easier</h1>
                         <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam assumenda ea quo cupiditate facere deleniti fuga officia.</p>
                         <div>
                         <a href="{{ route('login') }}" class="btn btn-primary mr-2 mb-2">Get Started</a>
