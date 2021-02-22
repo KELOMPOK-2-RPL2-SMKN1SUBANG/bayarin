@@ -19,6 +19,10 @@
             <li class="menu-header">Classroom</li>
             <li><a class="nav-link" href="{{ route('admin.classrooms') }}"><i class="fas fa-university"></i> <span>Classrooms</span></a></li>
             
+            <!-- Officers -->
+            <li class="menu-header">Officers</li>
+            <li><a class="nav-link" href="{{ route('admin.officers') }}"><i class="fas fa-users-cog"></i> <span>Officers</span></a></li>
+            
             <!-- Transactions -->
             <li class="menu-header">Transactions</li>
             <li><a class="nav-link" href="{{ route('admin.payments') }}"><i class="fas fa-money-bill-wave-alt"></i> <span>Payments</span></a></li>

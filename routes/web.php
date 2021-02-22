@@ -47,6 +47,13 @@ Route::name('admin.')->prefix('admin')->middleware('auth')->group(function () {
             'index' => 'payment-transactions'
         ]
     ]);
+
+    // Officer
+    Route::resource('officers', 'OfficerController', [
+        'names' => [
+            'index' => 'officers'
+        ]
+    ]);
 });
 
 Auth::routes(['verify' => true]);
